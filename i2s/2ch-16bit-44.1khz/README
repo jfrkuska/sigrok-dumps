@@ -1,0 +1,19 @@
+I2S Master 2-channel 16-bit 44.1-kHz
+-------------------------------------------------------------------------------
+
+This is an example of an I2S master playing a simple left-right channel test
+buffer. left channel is 0x0000 and right channel is 0xaa55 
+
+Logic analyzer setup
+--------------------
+
+The logic analyzer used was an USBee Clone (at 12MHz):
+
+  Probe       I2S pin
+  -------------------
+  0           Clock
+  1           Frame Select
+  2           Data
+
+The data session was captured with the following command:
+sigrok-cli --driver=fx2lafw:conn=<conn number> --samples=1m -c samplerate=12m -t 1=0 -o <sample name>
